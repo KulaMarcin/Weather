@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+    <!-- Required meta tags -->
+    <link rel="icon" type="image/png" href="../img/bulb.png">
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+
+    <title>Pogoda: Kraków</title>
+
+</head>
+<body>
+
+<div class="container">
+
+    <div class="row">
+        <div class="col">
+
+                <div class="blurred-box-title">
+                    <div class="content-title-left">
+                        <img src="img/logo.png" /> Pogoda: Kraków, małopolskie
+                    </div>
+                    <div class="content-title-right">
+                        <span data-toggle="tooltip" data-placement="top" title="Aktualna temperatura" class="font-weight-bold" th:text="${currentTemperature}"> </span> <span class="font-weight-bold">°C</span>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div th:each="weatherModel : ${weatherModels}">
+
+                    <div class="blurred-box">
+
+                        <div class="content-left">
+                            <h3> <span th:text="${weatherModel.dayOfWeekInPolish}"> </span> <span th:text="${weatherModel.time}"> </span> </h3>
+                            <br>
+                            <div th:if="${weatherModel.icon=='clear-day'}">
+                                <img src="img/clear-day.png" />
+                            </div>
+                            <div th:if="${weatherModel.icon=='clear-night'}">
+                                <img src="img/clear-night.png" />
+                            </div>
+                            <div th:if="${weatherModel.icon=='rain'}">
+                                <img src="img/rain.png" />
+                            </div>
+                            <div th:if="${weatherModel.icon=='snow'}">
+                                <img src="img/snow.png" />
+                            </div>
+                            <div th:if="${weatherModel.icon=='sleet'}">
+                                <img src="img/sleet.png" />
+                            </div>
+                            <div th:if="${weatherModel.icon=='wind'}">
+                                <img src="img/wind.png" />
+                            </div>
+                            <div th:if="${weatherModel.icon=='fog'}">
+                                <img src="img/fog.png" />
+                            </div>
+                            <div th:if="${weatherModel.icon=='cloudy'}">
+                                <img src="img/cloudy.png" />
+                            </div>
+                            <div th:if="${weatherModel.icon=='partly-cloudy-day'}">
+                                <img src="img/partly-cloudy-day.png" />
+                            </div>
+                            <div th:if="${weatherModel.icon=='partly-cloudy-night'}">
+                                <img src="img/partly-cloudy-night.png" />
+                            </div>
+                            <br>
+                            <br>
+                        </div>
+
+                        <div class="content-right">
+                            Wschód słońca: <span class="font-weight-bold" th:text="${weatherModel.sunriseTime}"> </span>
+                            <br>
+                            Zachód słońca: <span class="font-weight-bold" th:text="${weatherModel.sunsetTime}"> </span>
+                            <br>
+                            <br>
+                            Temperatura maksymalna: <span class="font-weight-bold" th:text="${weatherModel.maxTemperature}"> </span><span class="font-weight-bold">°C</span> (<span th:text="${weatherModel.maxTemperatureTime}"> </span>)
+                            <br>
+                            Temperatura minimalna: <span class="font-weight-bold" th:text="${weatherModel.minTemperature}"> </span><span class="font-weight-bold">°C</span> (<span th:text="${weatherModel.minTemperatureTime}"> </span>)
+                            <br>
+                            <br>
+                            Szansa opadów: <span class="font-weight-bold" th:text="${weatherModel.precipProbability}"> </span> <span class="font-weight-bold">%</span>
+                            <br>
+                            Prędkość wiatru: <span class="font-weight-bold" th:text="${weatherModel.windSpeed}"> </span> <span class="font-weight-bold">km/h</span>
+                            <br>
+                            Ciśnienie: <span class="font-weight-bold" th:text="${weatherModel.pressure}"> </span> <span class="font-weight-bold">hPa</span>
+                            <br>
+                            <br>
+                            Podsumowanie: <span class="font-weight-bold" th:text="${weatherModel.summary}"> </span>
+                        </div>
+
+                    </div>
+                    <br>
+                    <br>
+                </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>

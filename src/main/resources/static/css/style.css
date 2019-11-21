@@ -1,0 +1,102 @@
+
+body {
+	background: url(../img/background.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	font-family: 'Roboto', sans-serif;
+}
+
+.blurred-box{
+	position: relative;
+	width: 100%;
+	height: 500px;
+	background: inherit;
+	border-radius: 2px;
+	overflow: hidden;
+}
+
+.blurred-box:after{
+	content: '';
+	width: 110%;
+	height: 550px;
+	background: inherit;
+	position: absolute;
+	left: -25px;
+	right: 0;
+	top: -25px;
+	box-shadow: inset 0 0 0 300px rgba(175,175,175,0.3);
+	filter: blur(30px);
+}
+
+.blurred-box-title{
+	position: relative;
+	width: 100%;
+	height: 100px;
+	background: inherit;
+	border-radius: 2px;
+	overflow: hidden;
+}
+
+.blurred-box-title:after{
+	content: '';
+	width: 110%;
+	height: 150px;
+	background: inherit;
+	position: absolute;
+	left: -25px;
+	right: 0;
+	top: -25px;
+	box-shadow: inset 0 0 0 300px rgba(175,175,175,0.3);
+	filter: blur(30px);
+}
+
+.content-right{
+	width: 50%;
+	z-index: 1;
+	position: relative;
+	color: white;
+	padding-left: 50px;
+	padding-right: 50px;
+	float: left;
+	padding-top: 100px;
+	font-size: 17px;
+}
+
+.content-left{
+	width: 50%;
+	z-index: 1;
+	position: relative;
+	color: white;
+	float: left;
+	text-align: center;
+	padding-top: 50px;
+}
+
+.content-title-left{
+	z-index: 1;
+	position: relative;
+	color: white;
+	padding: 25px;
+	font-size: 35px;
+	color: white;
+	width: 80%;
+	float: left;
+}
+
+.content-title-right{
+	z-index: 1;
+	position: relative;
+	color: white;
+	padding: 25px;
+	font-size: 35px;
+	color: white;
+	width: 20%;
+	float: left;
+}
+
+.container{
+
+	padding: 30px;
+}
